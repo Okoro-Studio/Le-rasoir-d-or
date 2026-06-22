@@ -60,17 +60,16 @@
     background:
       radial-gradient(75% 70% at 76% 50%,rgba(199,162,76,.14),transparent 62%),
       var(--noir)}
-  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;
-    width:100%;padding:120px 32px 90px}
-  .hero-in>*{min-width:0}
-  .hero .eyebrow{display:block;margin-bottom:24px}
-  .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(44px,5.8vw,96px);
-    line-height:.92;letter-spacing:.005em;text-transform:uppercase}
+  .hero-in{display:flex;flex-direction:column;align-items:center;text-align:center;
+    width:100%;padding:104px 32px 80px}
+  .hero .eyebrow{display:block;margin-bottom:20px}
+  .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(40px,6.2vw,98px);
+    line-height:1.1;letter-spacing:.005em;text-transform:uppercase}
   .hero h1 span{color:var(--brass)}
-  .hero .since{font-family:var(--script);font-size:clamp(32px,4.4vw,56px);color:var(--brass2);
-    line-height:1;display:block;margin:16px 0 0}
-  .hero-sub{max-width:430px;margin-top:28px;color:var(--bone-dim);font-size:17px}
-  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
+  .hero .since{font-family:var(--script);font-size:clamp(30px,4.2vw,54px);color:var(--brass2);
+    line-height:1;display:block;margin:14px 0 0}
+  .hero-sub{max-width:480px;margin:26px auto 0;color:var(--bone-dim);font-size:17px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px;justify-content:center}
   .btn{font-family:var(--disp);font-size:13px;letter-spacing:.18em;text-transform:uppercase;
     padding:16px 30px;cursor:pointer;transition:all .25s;display:inline-block}
   .btn-solid{background:var(--brass);color:var(--noir);border:1px solid var(--brass)}
@@ -79,9 +78,10 @@
   .btn-line:hover{border-color:var(--brass)}
 
   /* vintage seal */
-  .seal-wrap{display:flex;justify-content:center;align-items:center}
-  .razor-emblem{width:min(620px,100%);height:auto;overflow:visible;cursor:pointer;
-    filter:drop-shadow(0 18px 40px rgba(0,0,0,.55))}
+  .seal-wrap{display:flex;justify-content:center;align-items:center;
+    margin-bottom:clamp(18px,4vh,46px)}
+  .razor-emblem{width:min(300px,62%);height:auto;overflow:visible;cursor:pointer;
+    filter:drop-shadow(0 16px 36px rgba(0,0,0,.55))}
   .razor-scales{fill:var(--char);stroke:var(--brass);stroke-width:2;stroke-linejoin:round}
   .razor-accent{fill:none;stroke:var(--brass);stroke-width:.9;opacity:.65}
   .razor-blade path{fill:var(--brass2);stroke:var(--brass);stroke-width:1.4;stroke-linejoin:round}
@@ -208,16 +208,6 @@
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="wrap hero-in">
-    <div>
-      <span class="eyebrow">Barbier · Coiffeur — Genève</span>
-      <h1>L'art du<br><span>rasoir</span><br>bien<br>affûté.</h1>
-      <span class="since">depuis 1924</span>
-      <p class="hero-sub">Coupe à l'ancienne, taille de barbe au millimètre et rasage au coupe-chou, serviette chaude comprise. Le geste juste, transmis de main en main.</p>
-      <div class="hero-cta">
-        <a href="#rdv" class="btn btn-solid">Prendre rendez-vous</a>
-        <a href="#tarifs" class="btn btn-line">Voir les tarifs</a>
-      </div>
-    </div>
     <div class="seal-wrap">
       <!-- coupe-chou icône : fermé au repos, s'ouvre au survol -->
       <svg class="razor-emblem" viewBox="0 0 122 98" role="img" aria-label="Coupe-chou Le Rasoir d'Or — passez la souris pour l'ouvrir">
@@ -232,6 +222,16 @@
           <circle class="razor-pin" cx="30" cy="0" r="2.6"/>
         </g>
       </svg>
+    </div>
+    <div class="hero-copy">
+      <span class="eyebrow">Barbier · Coiffeur — Genève</span>
+      <h1>L'art du <span>rasoir</span><br>bien affûté.</h1>
+      <span class="since">depuis 1924</span>
+      <p class="hero-sub">Coupe à l'ancienne, taille de barbe au millimètre et rasage au coupe-chou, serviette chaude comprise. Le geste juste, transmis de main en main.</p>
+      <div class="hero-cta">
+        <a href="#rdv" class="btn btn-solid">Prendre rendez-vous</a>
+        <a href="#tarifs" class="btn btn-line">Voir les tarifs</a>
+      </div>
     </div>
   </div>
 </header>
