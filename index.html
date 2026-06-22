@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Rasoir d'Or — Barbier traditionnel · Genève</title>
+<meta name="description" content="Le Rasoir d'Or — barbier & coiffeur traditionnel à Genève depuis 1924. Coupe, taille de barbe et rasage au coupe-chou.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='20'%3E%F0%9F%92%88%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Pinyon+Script&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#14110D;
+    --char:#1C1813;
+    --bone:#ECE5D7;
+    --bone-dim:#b6ad9c;
+    --brass:#C7A24C;
+    --brass2:#E3C679;
+    --ox:#8A3B2E;
+    --line:rgba(236,229,215,.14);
+    --disp:'Oswald',sans-serif;
+    --serif:'Spectral',Georgia,serif;
+    --script:'Pinyon Script',cursive;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--noir);color:var(--bone);font-family:var(--serif);font-weight:300;
+    line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .eyebrow{font-family:var(--disp);font-weight:500;font-size:12px;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--brass)}
+  .script{font-family:var(--script);color:var(--brass2)}
+
+  /* barber pole divider */
+  .pole{height:13px;
+    background:repeating-linear-gradient(60deg,var(--ox) 0 13px,#efe7d8 13px 26px,#2a3c57 26px 39px,#efe7d8 39px 52px);
+    background-size:52px 52px;animation:pole 2.6s linear infinite}
+  @keyframes pole{to{background-position:52px 0}}
+
+  /* ---- NAV ---- */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,border-color .4s;
+    border-bottom:1px solid transparent}
+  .nav.scrolled{background:rgba(20,17,13,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .logo{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:.14em;text-transform:uppercase}
+  .logo span{color:var(--brass)}
+  .nav-links{display:flex;gap:34px;font-family:var(--disp);font-weight:400;font-size:13px;
+    letter-spacing:.18em;text-transform:uppercase}
+  .nav-links a{opacity:.8;transition:color .2s,opacity .2s}
+  .nav-links a:hover{opacity:1;color:var(--brass2)}
+  .nav-cta{font-family:var(--disp);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    border:1px solid var(--brass);color:var(--brass2);padding:11px 20px;transition:all .25s}
+  .nav-cta:hover{background:var(--brass);color:var(--noir)}
+  .burger{display:none;background:none;border:0;font-size:24px;cursor:pointer;color:var(--bone)}
+
+  /* ---- HERO ---- */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 78% 18%,rgba(199,162,76,.10),transparent 55%),
+      var(--noir)}
+  .hero-in{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;
+    width:100%;padding:120px 32px 90px}
+  .hero .eyebrow{display:block;margin-bottom:26px}
+  .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(56px,9vw,128px);
+    line-height:.92;letter-spacing:.005em;text-transform:uppercase}
+  .hero h1 span{color:var(--brass)}
+  .hero .since{font-family:var(--script);font-size:clamp(38px,6vw,68px);color:var(--brass2);
+    line-height:.7;display:block;margin:6px 0 0}
+  .hero-sub{max-width:430px;margin-top:30px;color:var(--bone-dim);font-size:17px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
+  .btn{font-family:var(--disp);font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    padding:16px 30px;cursor:pointer;transition:all .25s;display:inline-block}
+  .btn-solid{background:var(--brass);color:var(--noir);border:1px solid var(--brass)}
+  .btn-solid:hover{background:var(--brass2);border-color:var(--brass2)}
+  .btn-line{border:1px solid var(--line);color:var(--bone)}
+  .btn-line:hover{border-color:var(--brass)}
+
+  /* vintage seal */
+  .seal-wrap{display:flex;justify-content:center;align-items:center}
+  .razor-emblem{width:min(440px,94%);height:auto;overflow:visible;cursor:pointer}
+  .razor-scales{fill:var(--char);stroke:var(--brass);stroke-width:2;stroke-linejoin:round}
+  .razor-accent{fill:none;stroke:var(--brass);stroke-width:.9;opacity:.65}
+  .razor-blade path{fill:var(--brass2);stroke:var(--brass);stroke-width:1.4;stroke-linejoin:round}
+  .razor-blade{transform-box:fill-box;transform-origin:0% 50%;
+    transition:transform .7s cubic-bezier(.34,1.2,.4,1)}
+  .razor-emblem:hover .razor-blade{transform:rotate(172deg)}
+  .razor-pin{fill:var(--brass);stroke:var(--char);stroke-width:.6}
+
+  /* ---- SALON (photo intérieur) ---- */
+  .salon{position:relative}
+  .salon-media{min-height:80vh;display:flex;align-items:flex-end;
+    background-color:var(--char);
+    background-image:linear-gradient(180deg,rgba(20,17,13,.35) 0%,rgba(20,17,13,.85) 92%),url("salon.jpg");
+    background-size:cover;background-position:center}
+  .salon-cap{max-width:1180px;margin:0 auto;width:100%;padding:0 32px 70px}
+  .salon-cap h2{font-family:var(--disp);font-weight:600;text-transform:uppercase;
+    font-size:clamp(34px,5vw,64px);line-height:1;margin:14px 0 0}
+  .salon-cap p{margin-top:20px;max-width:440px;color:var(--bone-dim);font-size:17px}
+
+  /* ---- reveal ---- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---- SAVOIR-FAIRE ---- */
+  .craft{background:var(--char);padding:120px 0}
+  .craft .head{text-align:center;margin-bottom:64px}
+  .craft .head h2{font-family:var(--disp);font-weight:600;text-transform:uppercase;
+    font-size:clamp(32px,4.4vw,56px);letter-spacing:.02em;margin-top:14px}
+  .craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .craft-card{border:1px solid var(--line);padding:44px 32px;text-align:center;transition:border-color .3s,transform .3s}
+  .craft-card:hover{border-color:var(--brass);transform:translateY(-4px)}
+  .craft-card .ic{width:52px;height:52px;margin:0 auto 22px;stroke:var(--brass);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .craft-card h3{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:20px;margin-bottom:12px}
+  .craft-card p{color:var(--bone-dim);font-size:15px}
+
+  /* ---- TARIFS ---- */
+  .tarifs{padding:120px 0}
+  .tarifs .head{text-align:center;margin-bottom:30px}
+  .tarifs .head h2{font-family:var(--disp);font-weight:600;text-transform:uppercase;
+    font-size:clamp(36px,5vw,68px);margin-top:14px}
+  .tarifs .head .script{font-size:34px;display:block;line-height:1;margin-top:8px}
+  .price-list{max-width:760px;margin:56px auto 0}
+  .price{display:flex;align-items:baseline;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .price .p-name{font-family:var(--disp);font-weight:500;font-size:21px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+  .price .p-desc{font-size:14px;color:var(--bone-dim)}
+  .price .p-dots{flex:1;border-bottom:1px dotted rgba(236,229,215,.3);transform:translateY(-4px)}
+  .price .p-time{font-family:var(--disp);font-size:12px;letter-spacing:.12em;color:var(--bone-dim);white-space:nowrap}
+  .price .p-price{font-family:var(--disp);font-weight:600;font-size:22px;color:var(--brass2);white-space:nowrap}
+
+  /* ---- RDV ---- */
+  .rdv{background:var(--char);padding:120px 0}
+  .rdv-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .rdv h2{font-family:var(--disp);font-weight:600;text-transform:uppercase;
+    font-size:clamp(34px,4.8vw,60px);line-height:1;margin:14px 0 0}
+  .rdv .info{margin-top:34px;display:flex;flex-direction:column;gap:16px}
+  .rdv .info div{border-top:1px solid var(--line);padding-top:14px}
+  .rdv .info span{font-family:var(--disp);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:5px}
+  .rdv .info p{font-size:18px}
+  .rdv .info b{color:var(--bone)}
+  .form{display:flex;flex-direction:column;gap:18px}
+  .form .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .form label{font-family:var(--disp);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:8px}
+  .form input,.form select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(236,229,215,.26);
+    color:var(--bone);font-family:var(--serif);font-size:18px;padding:8px 0;outline:none}
+  .form input::placeholder{color:rgba(236,229,215,.38)}
+  .form select option{color:#14110D}
+  .form input:focus,.form select:focus{border-color:var(--brass)}
+  .form button{margin-top:8px;background:var(--brass);color:var(--noir);border:0;cursor:pointer;
+    font-family:var(--disp);font-size:13px;letter-spacing:.2em;text-transform:uppercase;padding:17px;transition:background .25s}
+  .form button:hover{background:var(--brass2)}
+  .form .ok{display:none;font-family:var(--disp);letter-spacing:.04em;font-size:17px;color:var(--brass2);
+    border:1px solid rgba(199,162,76,.4);padding:22px;text-align:center;text-transform:uppercase}
+  .form.sent .grid-fields{display:none}
+  .form.sent .ok{display:block}
+
+  /* ---- FOOTER ---- */
+  footer{background:var(--noir);color:var(--bone-dim);padding:66px 0 38px}
+  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;
+    padding-bottom:36px;border-bottom:1px solid var(--line)}
+  .foot-logo{font-family:var(--disp);font-weight:600;font-size:26px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone)}
+  .foot-logo span{color:var(--brass)}
+  .foot-cols{display:flex;gap:60px;flex-wrap:wrap;font-size:14px}
+  .foot-cols h4{font-family:var(--disp);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+  .foot-cols p,.foot-cols a{display:block;margin-bottom:8px}
+  .foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    padding-top:26px;font-family:var(--disp);font-size:12px;letter-spacing:.1em;color:#6f6757}
+  .foot-bot a{color:var(--brass2)}
+
+  @media(max-width:860px){
+    .nav-links,.nav-cta{display:none}
+    .burger{display:block}
+    .hero-in{grid-template-columns:1fr;gap:50px}
+    .seal-wrap{order:-1}
+    .seal{width:240px;animation-duration:50s}
+    .craft-grid{grid-template-columns:1fr}
+    .rdv-grid{grid-template-columns:1fr;gap:48px}
+    .form .row{grid-template-columns:1fr}
+    .price{flex-wrap:wrap}
+    .price .p-dots{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .pole,.seal{animation:none}html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo">Le Rasoir <span>d'Or</span></a>
+    <div class="nav-links">
+      <a href="#savoir">Savoir-faire</a>
+      <a href="#salon">Le Salon</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#rdv">Horaires</a>
+    </div>
+    <a href="#rdv" class="nav-cta">Rendez-vous</a>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">Barbier · Coiffeur — Genève</span>
+      <h1>L'art du<br><span>rasoir</span><br>bien affûté.</h1>
+      <span class="since">depuis 1924</span>
+      <p class="hero-sub">Coupe à l'ancienne, taille de barbe au millimètre et rasage au coupe-chou, serviette chaude comprise. Le geste juste, transmis de main en main.</p>
+      <div class="hero-cta">
+        <a href="#rdv" class="btn btn-solid">Prendre rendez-vous</a>
+        <a href="#tarifs" class="btn btn-line">Voir les tarifs</a>
+      </div>
+    </div>
+    <div class="seal-wrap">
+      <!-- coupe-chou icône : fermé au repos, s'ouvre au survol -->
+      <svg class="razor-emblem" viewBox="0 0 210 150" role="img" aria-label="Coupe-chou Le Rasoir d'Or — passez la souris pour l'ouvrir">
+        <g transform="translate(112,82) rotate(-18)">
+          <g class="razor-blade">
+            <path d="M-30,-2 L-18,-6 L26,-6 L33,-2 L33,2 L26,6 L-18,6 L-30,2 Z"/>
+          </g>
+          <path class="razor-scales" d="M-30,-7 C-8,-10 16,-10 33,-5 C41,-3 41,3 33,5 C16,10 -8,10 -30,7 C-34,4 -34,-4 -30,-7 Z"/>
+          <path class="razor-accent" d="M-22,-3.6 C-6,-5.6 14,-5.6 27,-2.6"/>
+          <path class="razor-accent" d="M-22,3.6 C-6,5.6 14,5.6 27,2.6"/>
+          <circle class="razor-pin" cx="-30" cy="0" r="2.6"/>
+          <circle class="razor-pin" cx="30" cy="0" r="2.6"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="pole"></div>
+
+<!-- SAVOIR-FAIRE -->
+<section class="craft" id="savoir">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Le savoir-faire</span>
+      <h2>Trois gestes, un métier</h2>
+    </div>
+    <div class="craft-grid">
+      <div class="craft-card reveal">
+        <svg class="ic" viewBox="0 0 48 48"><circle cx="12" cy="34" r="6"/><circle cx="12" cy="14" r="6"/><line x1="17" y1="31" x2="42" y2="10"/><line x1="17" y1="17" x2="42" y2="38"/></svg>
+        <h3>La Coupe</h3>
+        <p>Dégradés nets, ciseaux et tondeuse, finitions au rasoir. Une coupe pensée pour votre visage, pas pour la mode du mois.</p>
+      </div>
+      <div class="craft-card reveal">
+        <svg class="ic" viewBox="0 0 48 48"><path d="M10 12c0 14 6 26 14 26s14-12 14-26"/><path d="M10 12c4 3 9 4 14 4s10-1 14-4"/></svg>
+        <h3>La Barbe</h3>
+        <p>Taille au sabot ou sculptée au rasoir, contours dessinés à main levée, huile et baume pour finir.</p>
+      </div>
+      <div class="craft-card reveal">
+        <svg class="ic" viewBox="0 0 48 48"><path d="M8 30 30 8a5 5 0 0 1 7 7L15 37a7 7 0 0 1-10-3z"/><line x1="8" y1="30" x2="4" y2="34"/></svg>
+        <h3>Le Rasage</h3>
+        <p>Le grand rituel au coupe-chou : serviette chaude, blaireau, mousse fouettée et lame impeccable. Dix minutes hors du temps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pole"></div>
+
+<!-- SALON -->
+<section class="salon" id="salon">
+  <div class="salon-media">
+    <div class="salon-cap">
+      <span class="eyebrow">L'atelier</span>
+      <h2>Cuir, laiton<br>et lumière basse.</h2>
+      <p>Des fauteuils d'époque, des miroirs anciens et l'odeur du bois de santal. Un écrin pensé pour qu'on s'y attarde — entre deux coups de lame.</p>
+    </div>
+  </div>
+</section>
+
+<div class="pole"></div>
+
+<!-- TARIFS -->
+<section class="tarifs" id="tarifs">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">La carte</span>
+      <h2>Tarifs</h2>
+      <span class="script">le juste prix du soin</span>
+    </div>
+    <div class="price-list">
+      <div class="price reveal">
+        <span class="p-name">Coupe Classique</span>
+        <span class="p-dots"></span>
+        <span class="p-time">30 min</span>
+        <span class="p-price">45.–</span>
+      </div>
+      <div class="price reveal">
+        <span class="p-name">Coupe &amp; Barbe</span>
+        <span class="p-dots"></span>
+        <span class="p-time">50 min</span>
+        <span class="p-price">75.–</span>
+      </div>
+      <div class="price reveal">
+        <span class="p-name">Taille de Barbe</span>
+        <span class="p-dots"></span>
+        <span class="p-time">25 min</span>
+        <span class="p-price">35.–</span>
+      </div>
+      <div class="price reveal">
+        <span class="p-name">Rasage Traditionnel</span>
+        <span class="p-dots"></span>
+        <span class="p-time">40 min</span>
+        <span class="p-price">55.–</span>
+      </div>
+      <div class="price reveal">
+        <span class="p-name">Coupe Enfant</span>
+        <span class="p-dots"></span>
+        <span class="p-time">25 min</span>
+        <span class="p-price">30.–</span>
+      </div>
+      <div class="price reveal">
+        <span class="p-name">Le Grand Jeu</span>
+        <span class="p-dots"></span>
+        <span class="p-time">70 min</span>
+        <span class="p-price">95.–</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pole"></div>
+
+<!-- RDV -->
+<section class="rdv" id="rdv">
+  <div class="wrap rdv-grid">
+    <div class="reveal">
+      <span class="eyebrow">Rendez-vous</span>
+      <h2>Passez<br>la porte.</h2>
+      <div class="info">
+        <div><span>L'échoppe</span><p><b>Rue des Lames 7, 1201 Genève</b></p></div>
+        <div><span>Horaires</span><p>Mar – Ven · 9h — 19h<br>Samedi · 9h — 17h · Dim &amp; Lun fermé</p></div>
+        <div><span>Téléphone</span><p><b>+41 22 000 00 00</b></p></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="form" id="rdvForm" novalidate>
+        <div class="grid-fields" style="display:flex;flex-direction:column;gap:18px">
+          <div><label>Prestation</label>
+            <select>
+              <option>Coupe Classique</option><option>Coupe &amp; Barbe</option>
+              <option>Taille de Barbe</option><option>Rasage Traditionnel</option>
+              <option>Coupe Enfant</option><option>Le Grand Jeu</option>
+            </select>
+          </div>
+          <div class="row">
+            <div><label>Date</label><input type="date"></div>
+            <div><label>Heure</label>
+              <select>
+                <option>09:00</option><option>10:00</option><option>11:00</option>
+                <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option>
+              </select>
+            </div>
+          </div>
+          <div><label>Nom</label><input type="text" placeholder="Votre nom"></div>
+          <div><label>Téléphone</label><input type="tel" id="rTel" placeholder="+41 …"></div>
+          <button type="submit">Confirmer le rendez-vous</button>
+        </div>
+        <div class="ok">C'est noté — on vous attend.<br>Un SMS de confirmation suit sous peu.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="pole"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-logo">Le Rasoir <span>d'Or</span></div>
+      <div class="foot-cols">
+        <div>
+          <h4>L'échoppe</h4>
+          <p>Rue des Lames 7</p><p>1201 Genève</p><p>+41 22 000 00 00</p>
+        </div>
+        <div>
+          <h4>Visiter</h4>
+          <a href="#savoir">Savoir-faire</a><a href="#tarifs">Tarifs</a><a href="#rdv">Rendez-vous</a>
+        </div>
+        <div>
+          <h4>Suivre</h4>
+          <a href="#">Instagram</a><a href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Le Rasoir d'Or — Barbier depuis 1924</span>
+      <span>Démo fictive · réalisée par <a href="https://www.okorostudio.ch">Okoro Studio</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  document.getElementById('burger').addEventListener('click', function(){
+    var l = document.querySelector('.nav-links');
+    var open = l.style.display === 'flex';
+    l.style.cssText = open ? '' :
+      'display:flex;flex-direction:column;gap:16px;position:absolute;top:76px;right:32px;'+
+      'background:var(--char);padding:22px 26px;border:1px solid var(--line)';
+  });
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  document.getElementById('rdvForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var tel = document.getElementById('rTel').value.trim();
+    if(tel.length < 6){ document.getElementById('rTel').focus(); return; }
+    this.classList.add('sent');
+  });
+</script>
+</body>
+</html>
