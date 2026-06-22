@@ -58,17 +58,18 @@
   /* ---- HERO ---- */
   .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
     background:
-      radial-gradient(120% 90% at 78% 18%,rgba(199,162,76,.10),transparent 55%),
+      radial-gradient(75% 70% at 76% 50%,rgba(199,162,76,.14),transparent 62%),
       var(--noir)}
-  .hero-in{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;
+  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;
     width:100%;padding:120px 32px 90px}
-  .hero .eyebrow{display:block;margin-bottom:26px}
-  .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(56px,9vw,128px);
+  .hero-in>*{min-width:0}
+  .hero .eyebrow{display:block;margin-bottom:24px}
+  .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(44px,5.8vw,96px);
     line-height:.92;letter-spacing:.005em;text-transform:uppercase}
   .hero h1 span{color:var(--brass)}
-  .hero .since{font-family:var(--script);font-size:clamp(38px,6vw,68px);color:var(--brass2);
-    line-height:.7;display:block;margin:6px 0 0}
-  .hero-sub{max-width:430px;margin-top:30px;color:var(--bone-dim);font-size:17px}
+  .hero .since{font-family:var(--script);font-size:clamp(32px,4.4vw,56px);color:var(--brass2);
+    line-height:1;display:block;margin:16px 0 0}
+  .hero-sub{max-width:430px;margin-top:28px;color:var(--bone-dim);font-size:17px}
   .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
   .btn{font-family:var(--disp);font-size:13px;letter-spacing:.18em;text-transform:uppercase;
     padding:16px 30px;cursor:pointer;transition:all .25s;display:inline-block}
@@ -79,7 +80,8 @@
 
   /* vintage seal */
   .seal-wrap{display:flex;justify-content:center;align-items:center}
-  .razor-emblem{width:min(440px,94%);height:auto;overflow:visible;cursor:pointer}
+  .razor-emblem{width:min(620px,100%);height:auto;overflow:visible;cursor:pointer;
+    filter:drop-shadow(0 18px 40px rgba(0,0,0,.55))}
   .razor-scales{fill:var(--char);stroke:var(--brass);stroke-width:2;stroke-linejoin:round}
   .razor-accent{fill:none;stroke:var(--brass);stroke-width:.9;opacity:.65}
   .razor-blade path{fill:var(--brass2);stroke:var(--brass);stroke-width:1.4;stroke-linejoin:round}
@@ -208,7 +210,7 @@
   <div class="wrap hero-in">
     <div>
       <span class="eyebrow">Barbier · Coiffeur — Genève</span>
-      <h1>L'art du<br><span>rasoir</span><br>bien affûté.</h1>
+      <h1>L'art du<br><span>rasoir</span><br>bien<br>affûté.</h1>
       <span class="since">depuis 1924</span>
       <p class="hero-sub">Coupe à l'ancienne, taille de barbe au millimètre et rasage au coupe-chou, serviette chaude comprise. Le geste juste, transmis de main en main.</p>
       <div class="hero-cta">
@@ -218,8 +220,8 @@
     </div>
     <div class="seal-wrap">
       <!-- coupe-chou icône : fermé au repos, s'ouvre au survol -->
-      <svg class="razor-emblem" viewBox="0 0 210 150" role="img" aria-label="Coupe-chou Le Rasoir d'Or — passez la souris pour l'ouvrir">
-        <g transform="translate(112,82) rotate(-18)">
+      <svg class="razor-emblem" viewBox="0 0 122 98" role="img" aria-label="Coupe-chou Le Rasoir d'Or — passez la souris pour l'ouvrir">
+        <g transform="translate(61,49) rotate(-18)">
           <g class="razor-blade">
             <path d="M-30,-2 L-18,-6 L26,-6 L33,-2 L33,2 L26,6 L-18,6 L-30,2 Z"/>
           </g>
